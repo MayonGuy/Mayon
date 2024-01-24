@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Verification</title>
+    <style>
+        #copyButton {
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            display: none; /* Hide the button by default */
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    function checkUser() {
+        var user_input = prompt("First Name");
+
+        if (user_input && user_input.toLowerCase() === "ezri") {
+            var message = "I Like you Ezri";
+            alert(message);
+            showCopyButton(); // Display the copy button
+            copyToClipboard(message);
+        } else {
+            alert("Sorry, that's not the expected answer.");
+        }
+    }
+
+    function showCopyButton() {
+        var copyButton = document.getElementById("copyButton");
+        copyButton.style.display = "inline-block"; // Display the button
+    }
+
+    function copyToClipboard(text) {
+        var textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+    }
+
+    // Call the function when the page loads
+    window.onload = checkUser;
+</script>
+
+<button id="copyButton" onclick="copyToClipboard('ᜋᜒᜃ᜔ ᜀᜐᜑ ᜈᜒᜆᜇ')">Copy</button>
+
+</body>
+</html>
